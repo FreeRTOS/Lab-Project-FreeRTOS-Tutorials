@@ -18,42 +18,42 @@ started with the FreeRTOS Kernel.
 
 # Tutorials
 ## Add FreeRTOS to a Bare Metal Project
-* [Tutorial 1](docs/tutorial_1/README.md)
+* [Add FreeRTOS to a Bare Metal Project](docs/tutorial_1/README.md)
 
 ## Tasks and Scheduling
-* [Tutorial 2](docs/tutorial_2/README.md)
-* [Tutorial 3](docs/tutorial_3/README.md)
-* [Tutorial 4](docs/tutorial_4/README.md)
-* [Tutorial 5](docs/tutorial_5/README.md)
-* [Tutorial 6](docs/tutorial_6/README.md)
-* [Tutorial 7](docs/tutorial_7/README.md)
-* [Tutorial 8](docs/tutorial_8/README.md)
+* [Task Creation](docs/tutorial_2/README.md)
+* [Static Allocation](docs/tutorial_3/README.md)
+* [Task Priorities](docs/tutorial_4/README.md)
+* [Task Parameters](docs/tutorial_5/README.md)
+* [Scheduling Algorithm - Prioritized Preemptive Scheduling with Time Slicing](docs/tutorial_6/README.md)
+* [Scheduling Algorithm - Prioritized Preemptive Scheduling without Time Slicing](docs/tutorial_7/README.md)
+* [Scheduling Algorithm - Co-operative Scheduling](docs/tutorial_8/README.md)
 
 ## Queue
-* [Tutorial 9](docs/tutorial_9/README.md)
-* [Tutorial 10](docs/tutorial_10/README.md)
+* [Using Queues for Inter-Task Communication](docs/tutorial_9/README.md)
+* [Using Queues for Communication between Interrupts and Tasks](docs/tutorial_10/README.md)
 
 ## Software Timer
-* [Tutorial 11](docs/tutorial_11/README.md)
+* [Software Timers](docs/tutorial_11/README.md)
 
 ## Semaphore and Mutex
-* [Tutorial 12](docs/tutorial_12/README.md)
-* [Tutorial 13](docs/tutorial_13/README.md)
-* [Tutorial 14](docs/tutorial_14/README.md)
+* [Semaphore](docs/tutorial_12/README.md)
+* [Mutex](docs/tutorial_13/README.md)
+* [Priority Inversion and Priority Inheritance](docs/tutorial_14/README.md)
 
 ## Event Group
-* [Tutorial 15](docs/tutorial_15/README.md)
-* [Tutorial 16](docs/tutorial_16/README.md)
+* [Event Management using Event Groups](docs/tutorial_15/README.md)
+* [Task Synchronization using Event Groups](docs/tutorial_16/README.md)
 
 ## Task Notification
-* [Tutorial 17](docs/tutorial_17/README.md)
-* [Tutorial 18](docs/tutorial_18/README.md)
+* [Using Task Notifications as a Light Weight Binary Semaphore](docs/tutorial_17/README.md)
+* [Using Task Notifications as a Light Weight Event Group](docs/tutorial_18/README.md)
 
 ## Stream Buffer
-* [Tutorial 19](docs/tutorial_19/README.md)
+* [Stream Buffer](docs/tutorial_19/README.md)
 
 ## Message Buffer
-* [Tutorial 20](docs/tutorial_20/README.md)
+* [Message Buffer](docs/tutorial_20/README.md)
 
 ## Resource Management
-* [Tutorial 21](docs/tutorial_21/README.md)
+* [Resource Management](docs/tutorial_21/README.md)
