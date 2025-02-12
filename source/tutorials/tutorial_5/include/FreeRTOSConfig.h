@@ -90,7 +90,7 @@
 /* It is a good idea to define configASSERT() while developing.  configASSERT()
  * uses the same semantics as the standard C assert() macro.  Don't define
  * configASSERT() when performing code coverage tests though, as it is not
- * intended to asserts() to fail, some some code is intended not to run if no
+ * intended to asserts() to fail, some code is intended not to run if no
  * errors are present. */
 #define configASSERT( x )               if( ( x ) == 0 ) { taskDISABLE_INTERRUPTS(); for( ;; ); }
 
