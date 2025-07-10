@@ -18,7 +18,7 @@ Answer the 50 multiple-choice questions below. Select the best answer for each q
    - A. Display readings  
    - B. Transmit Wi-Fi data  
    - C. Measure SpO₂ and heart rate  
-   - D. Generate alerts  
+   - D. Generate alerts. 
 
 3. What is the role of the base station?  
    - A. Only stores data  
