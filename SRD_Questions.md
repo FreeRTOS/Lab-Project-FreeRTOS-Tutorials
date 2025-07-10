@@ -2,7 +2,7 @@
 
 ## Instructions
 
-Answer the 50 multiple-choice questions below. Select the best answer for each question.
+Answer the 50 multiple-choice questions below. Select the best answer for each question
 
 ---
 
