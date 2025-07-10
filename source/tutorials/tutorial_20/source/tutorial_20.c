@@ -128,6 +128,8 @@ static void prvReaderTask( void * pvParams )
         }
 
         fprintf( stderr, "\r\n" );
+        //delay for 200 milliseconds to simulate processing time
+        vTaskDelay( pdMS_TO_TICKS( 2000 ) );
     }
 }
 /*-----------------------------------------------------------*/
@@ -160,7 +162,7 @@ static void prvWriterTask( void * pvParams )
         uxSentBytes = xMessageBufferSend( xMessageBuffer,
                                           &( ucMessage1[ 0 ] ),
                                           sizeof( ucMessage1 ),
-                                          portMAX_DELAY );
+                                          0 );
         configASSERT( uxSentBytes == 5 );
 
         fprintf( stderr, "Sending second message...\r\n" );
@@ -180,12 +182,12 @@ static void prvWriterTask( void * pvParams )
         uxSentBytes = xMessageBufferSend( xMessageBuffer,
                                           &( ucMessage2[ 0 ] ),
                                           sizeof( ucMessage2 ),
-                                          portMAX_DELAY );
+                                          0 );
         configASSERT( uxSentBytes == 4 );
 
         fprintf( stderr, "Finished sending both the messages.\r\n" );
 
-        vTaskDelay( pdMS_TO_TICKS( 1000 ) );
+        vTaskDelay( pdMS_TO_TICKS( 50 ) );
     }
 }
 /*-----------------------------------------------------------*/

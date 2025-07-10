@@ -33,32 +33,48 @@
 /**
  * @brief Functions that implement FreeRTOS tasks.
  */
-static void prvTask1Function( void * pvParams );
-static void prvTask2Function( void * pvParams );
+static void prvTask1Function(void *pvParams);
+static void prvTask2Function(void *pvParams);
 /*-----------------------------------------------------------*/
+
+void vApplicationStackOverflowHook( TaskHandle_t xTask,
+                                    char * pcTaskName )
+{
+    /* Check pcTaskName for the name of the offending task,
+        * or pxCurrentTCB if pcTaskName has itself been corrupted. */
+    ( void ) xTask;
+    ( void ) pcTaskName;
+
+    // print the stack overflow error
+    fprintf(stderr, "Stack overflow in task: %s\r\n", pcTaskName);
+    // halt the system
+    for (;;);
+}
 
 /**
  * @brief Tutorial entry point.
  */
-int main( void )
+int main(void)
 {
     BaseType_t xTaskCreationResult = pdFAIL;
 
-    xTaskCreationResult = xTaskCreate( prvTask1Function,
-                                       "Task1",
-                                       configMINIMAL_STACK_SIZE,
-                                       NULL,
-                                       3,
-                                       NULL );
-    configASSERT( xTaskCreationResult == pdPASS );
+    xTaskCreationResult = xTaskCreate(prvTask1Function,
+                                      "Task1",
+                                      configMINIMAL_STACK_SIZE,
+                                      NULL,
+                                      3,
+                                      NULL);
+
+
+
+    configASSERT(xTaskCreationResult == pdPASS);
 
     /* Start the scheduler. */
     vTaskStartScheduler();
 
     /* Should not reach here. */
-    for( ;; )
+    for (;;)
     {
-
     }
 
     /* Just to make the compiler happy. */
@@ -66,51 +82,60 @@ int main( void )
 }
 /*-----------------------------------------------------------*/
 
-static void prvTask1Function( void * pvParams )
+static void prvTask1Function(void *pvParams)
 {
     uint64_t i;
     BaseType_t xTaskCreationResult = pdFAIL;
 
     /* Silence warning about unused parameters. */
-    ( void ) pvParams;
+    (void)pvParams;
 
-    xTaskCreationResult = xTaskCreate( prvTask2Function,
-                                       "Task2",
-                                       configMINIMAL_STACK_SIZE,
-                                       NULL,
-                                       2,
-                                       NULL );
-    configASSERT( xTaskCreationResult == pdPASS );
+    xTaskCreationResult = xTaskCreate(prvTask2Function,
+                                      "Task2",
+                                      1000,
+                                      NULL,
+                                      2,
+                                      NULL);
+    configASSERT(xTaskCreationResult == pdPASS);
 
-    for( ;; )
+    for (;;)
     {
-        fprintf( stderr, "Tutorial 7 task 1 running...\r\n" );
+        fprintf(stderr, "Tutorial 7 task 1 running...\r\n");
 
-        for( i = 0; i < 100000000; i++ )
+        for (i = 0; i < 100000000; i++)
         {
             /* This loop is just a very crude delay implementation. */
         }
-         vTaskDelay ( pdMS_TO_TICKS( 100 ) );
+        vTaskDelay(pdMS_TO_TICKS(100));
     }
 }
 /*-----------------------------------------------------------*/
 
-static void prvTask2Function( void * pvParams )
+static void prvTask2Function(void *pvParams)
 {
     uint64_t i;
 
     /* Silence warning about unused parameters. */
-    ( void ) pvParams;
+    (void)pvParams;
 
-    for( ;; )
+    // simulate a stack overflow by creating an infinite loop
+    // this will trigger the stack overflow hook defined above
+
+    uint64_t stackOverflowCounter[10000] = {0}; // This will cause a stack overflow if the stack size is too small
+
+    for (i = 0; i < sizeof(stackOverflowCounter) / sizeof(stackOverflowCounter[0]); i++)
     {
-        fprintf( stderr, "******************Tutorial 7 task 2 running...\r\n" );
+        stackOverflowCounter[i] = i; // This will fill the array and cause a stack overflow
+    }
+    for (;;)
+    {
+        fprintf(stderr, "******************Tutorial 7 task 2 running...\r\n");
 
-        for( i = 0; i < 100000000; i++ )
+        for (i = 0; i < 100000000; i++)
         {
             /* This loop is just a very crude delay implementation. */
         }
-       // vTaskDelay ( pdMS_TO_TICKS( 100 ) );
+        // vTaskDelay ( pdMS_TO_TICKS( 100 ) );
     }
 }
 /*-----------------------------------------------------------*/

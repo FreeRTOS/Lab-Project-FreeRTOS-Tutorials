@@ -79,6 +79,7 @@ int main( void )
     xQueueCreate( 5, sizeof( UBaseType_t ) );
     xQueue = xQueueCreate( 5, sizeof( UBaseType_t ) );
 
+
     configASSERT( xQueue != NULL );
 
     /* Start the scheduler. */

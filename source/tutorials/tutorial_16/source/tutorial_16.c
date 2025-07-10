@@ -64,7 +64,7 @@ int main( void )
                                        "Task1",
                                        configMINIMAL_STACK_SIZE,
                                        NULL,
-                                       tskIDLE_PRIORITY + 2,
+                                       tskIDLE_PRIORITY,
                                        NULL );
     configASSERT( xTaskCreationResult == pdPASS );
 
@@ -72,7 +72,7 @@ int main( void )
                                        "Task2",
                                        configMINIMAL_STACK_SIZE,
                                        NULL,
-                                       tskIDLE_PRIORITY + 3,
+                                       tskIDLE_PRIORITY,
                                        NULL );
     configASSERT( xTaskCreationResult == pdPASS );
 
@@ -80,7 +80,7 @@ int main( void )
                                        "Task3",
                                        configMINIMAL_STACK_SIZE,
                                        NULL,
-                                       tskIDLE_PRIORITY + 4,
+                                       tskIDLE_PRIORITY ,
                                        NULL );
     configASSERT( xTaskCreationResult == pdPASS );
 
